@@ -1,0 +1,30 @@
+A 'Scenario' can have multiple inputs provided to its steps.
+The inputs are provided as table with 'Examples' keyword.
+
+First line is considered as heading
+
+And one scenario can have multiple examples keyword attached to it.
+
+Scnario Outline: <Name>
+    Given .. <input1>
+    When .. <input2>
+    Then .. <outcome>
+
+ Examples: <Category1>
+    | input1    | input2    | outcome   |
+    | X         | Y         | Yes       |   
+    | I         | J         | No        |
+
+ Examples: <Category2>
+    | input1    | input2    | outcome   |
+    | 1         | 2         | Yes       |   
+    | 4.0       | 5.        | No        |
+
+
+Note: these input can be recognised in the step definition by introducing "Step Paramters"
+
+Step Paramters:
+~~~~~~~~~~~~~~~
+Provides a simple parser that replaces regular expressions for step parameters with a readable syntax like {param:Type}. 
+The syntax is inspired by the Python builtin string.format()
+The named fields are extracted, then used as step function arguments.

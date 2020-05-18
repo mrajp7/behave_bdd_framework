@@ -1,0 +1,25 @@
+Sometimes it’s useful to associate a table of data with your step.
+
+Any text block following a step wrapped in """ lines will be associated with the step. 
+For example:
+
+Given a sample text loaded into the frobulator
+     """
+     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+     eiusmod tempor incididunt ut labore et dolore magna aliqua.
+     """
+
+The text is available to the Python step code as the “.text” attribute in the Context variable passed into each step function.
+
+You may also associate a table of data with a step by simply entering it, indented, following the step. This can be useful for loading specific required data into a model.
+
+Scenario: some scenario
+  Given a set of specific users
+     | name      | department  |
+     | Barry     | Beer Cans   |
+     | Pudey     | Silly Walks |
+     | Two-Lumps | Silly Walks |
+ When we count the number of people in each department
+ Then we will find two people in "Silly Walks"
+  But we will find one person in "Beer Cans"
+The table is available to the Python step code as the “.table” attribute in the Context variable passed into each step function. The table for the example above could be accessed like so:
